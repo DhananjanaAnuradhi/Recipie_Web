@@ -1,0 +1,241 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Century', sans-serif;
+}
+
+header {
+    animation: changeBackground 20s infinite;
+    block-size: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    background-repeat: no-repeat; 
+}
+
+.background-wrapper {
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    z-index: -1; /* Ensure background is behind content */
+    overflow: hidden; /* Prevent any overflow */
+}
+
+.background {
+    inline-size: 100%;
+    block-size: 100%;
+    background-size: cover;
+    background-position: center;
+    animation: changeBackground 30s infinite;
+    filter: blur(3px); /* Apply a light blur to the background */
+}
+
+.content {
+    position: relative;
+    z-index: 1; /* Ensure content is on top of the background */
+    color: #fff; /* Text color */
+}
+
+@keyframes changeBackground {
+    0% {
+        background-image: url(../background.jpg);
+    }
+    25% {
+        background-image: url(../background2.jpg);
+    }
+    45% {
+        background-image: url(../background3.webp);
+    }
+    65% {
+        background-image: url(../background4.jpg);
+    }
+    85% {
+        background-image: url(../background5.jpg);
+    }
+    100% {
+        background-image: url(../background6.jpg);
+    }
+}
+
+.main {
+    inline-size: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: rgb(254, 254, 254); 
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between logo and brand name */
+}
+
+.logo img {
+    inline-size: 60px; 
+    block-size: auto;
+    border-radius: 50%; 
+}
+
+nav {
+    inline-size: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px; 
+    padding-inline-start: 0;
+    margin-block-end: 0;
+}
+
+ul li {
+    position: relative; /* Ensure sub-menu can be positioned absolutely */
+    display: inline-block;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #000;
+    padding: 10px 15px;
+    border: 1px solid transparent;
+    transition: 0.5s ease;
+    font-size: 18px; 
+    font-weight: bold;
+}
+
+ul li a:hover {
+    background-color: #d6a02b;
+    color: #fff;
+    border-radius: 5px;
+}
+
+ul li.active a {
+    background-color: #d6a02b;
+    color: #fff;
+    border-radius: 5px;
+}
+
+/* Sub-menu styles */
+.sub-menu {
+    display: none; /* Hide sub-menu by default */
+    position: absolute;
+    inset-block-start: 100%; /* Position below the parent item */
+    inset-inline-start: 0;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    padding: 1px 0;
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+.sub-menu ul {
+    list-style-type: none;
+    padding:0;
+    margin: 0;
+}
+
+.sub-menu ul li {
+    display: block;
+}
+
+.sub-menu ul li a {
+    display: block;
+    padding: 2.5px 5.5px;
+    color: #000;
+    font-size: 15.5px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.sub-menu ul li a:hover {
+    background-color: #d6b257;
+    color: #000;
+}
+
+ul li:hover .sub-menu {
+    display: block; /* Show sub-menu on hover */
+}
+
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    ul li a {
+        padding: 8px 12px;
+        font-size: 16px;
+    }
+
+    .logo img {
+        inline-size: 40px; 
+    }
+
+    .brand-name {
+        font-size: 18px; 
+        text-align: center;
+    }
+}
+
+.brand-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+    margin-inline-start: 10px; 
+}
+
+.title {
+    position: absolute;
+    inset-block-start: 46%;
+    inset-inline-start: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.title h1 {
+    color: #000000;
+    font-size: 70px;
+}
+
+.button {
+    position: absolute;
+    inset-block-start: 54%;
+    inset-inline-start: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.btn {
+    border: 1px solid #000;
+    padding: 5px 20px;
+    color: #000;
+    transition: 0.5s ease;
+    font-size: 18px;
+    text-decoration: none;
+    margin: 15px; /* Added margin to create space between buttons */
+    display: inline-block; /* Ensure buttons are aligned correctly */
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #000;
+    border-radius: 5px;
+}
